@@ -7,6 +7,7 @@ import Markdown from "react-markdown";
 import remarkGfm from 'remark-gfm'
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import ReactLoading from "react-loading";
 
 type Props = {
   
@@ -15,18 +16,13 @@ type Props = {
 const Feed:React.FC<Props> = () => {
   const params = useParams()
   const {data,isLoading}:any = useMaterial(params.studentId,params.materialId)
-  console.log('feedbar');
-  
-  console.log(data?.content+'popo');
-
   return (
     <div className='h-full overflow-scroll text-white w-full pl-2'>
        
         {
-
-          isLoading?<p>
-            Loading
-          </p>:   <Markdown className="prose" children={data?.content} remarkPlugins={[remarkGfm]}
+          
+          isLoading?<ReactLoading type='balls' color='#fff'/>:  
+              <Markdown className="prose" children={data?.content} remarkPlugins={[remarkGfm]}
                     components={{
                     code({ node, inline, className, children, style,...props }) {
                         const match = /language-(\w+)/.exec(className || "");
