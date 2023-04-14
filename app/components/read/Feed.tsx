@@ -17,32 +17,18 @@ const Feed:React.FC<Props> = () => {
   const params = useParams()
   const {data,isLoading}:any = useMaterial(params.studentId,params.materialId)
   return (
-    <div className='h-full overflow-scroll text-white w-full pl-2'>
+    <div className='h-full overflow-scroll text-white w-full p-2 bg-gray-200 '>
        
         {
           
           isLoading?<ReactLoading type='balls' color='#fff'/>:  
-              <Markdown className="prose" children={data?.content} remarkPlugins={[remarkGfm]}
+          <Markdown className="prose" remarkPlugins={[remarkGfm]}
                     components={{
-                    code({ node, inline, className, children, style,...props }) {
-                        const match = /language-(\w+)/.exec(className || "");
-            
-                        return !inline && match ? (
-                        <SyntaxHighlighter
-                            style={oneDark} 
-                            PreTag="div"
-                            language={match[1]}
-                            children={String(children).replace(/\n$/, "")}
-                            {...props}
-                        />
-                        ) : (
-                        <code className={className ? className : ""} {...props}>
-                            {children}
-                        </code>
-                        );
-                    }
-                }}
-               />
+                    
+                    }}
+              >
+                    {data?.content}
+        </Markdown>
         }
           
     </div>

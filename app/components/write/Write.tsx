@@ -12,14 +12,13 @@ type Props = {
 
 }
 
-const Write:React.FC<Props> = () => {
+const Write:React.FC<Props> =() => {
     const {data,isLoading} = useCurrent()
     console.log(data?.materialId);
     const [markdownSource, setMarkdownSource] = useState(`
         日期:
         课程:
     `);
-
     const handleClick = async()=>{
       try{
         await axios.post(`/api/write/${data?.studentId}`,{content:markdownSource,

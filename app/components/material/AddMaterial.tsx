@@ -18,7 +18,7 @@ const AddMaterial = (props: Props) => {
         setImg('/WechatRec.jpeg')
         setIsOpen(!isOpen)
         
-    },[pass])
+    },[isOpen])
   return (
     <div className='w-10/12 flex justify-between'>
             <Modal isOpen={isOpen} showInfo={true} showImg={false} img=''
