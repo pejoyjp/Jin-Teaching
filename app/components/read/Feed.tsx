@@ -5,14 +5,14 @@ import { useParams } from 'next/navigation'
 import React from 'react'
 import Markdown from "react-markdown";
 import remarkGfm from 'remark-gfm'
-import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { oneLight } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import ReactLoading from "react-loading";
+
 
 type Props = {
   
 }
-
 const Feed:React.FC<Props> = () => {
   const params = useParams()
   const {data,isLoading}:any = useMaterial(params.studentId,params.materialId)
@@ -22,13 +22,30 @@ const Feed:React.FC<Props> = () => {
         {
           
           isLoading?<ReactLoading type='balls' color='#fff'/>:  
-          <Markdown className="prose" remarkPlugins={[remarkGfm]}
-                    components={{
-                    
-                    }}
-              >
-                    {data?.content}
-        </Markdown>
+           <Markdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                code({ node, inline, className, children, ...props }) {
+                  const match = /language-(\w+)/.exec(className || '')
+                  return !inline && match ? (
+                    <SyntaxHighlighter
+                      language={match[1]}
+                      PreTag="div"
+                      {...props}
+                      style={oneLight}
+                    >
+                      {String(children).replace(/\n$/, '')}
+                    </SyntaxHighlighter>
+                  ) : (
+                    <code className={className} {...props}>
+                      {children}
+                    </code>
+                  )
+                },
+              }}
+            >
+                {data?.content}
+          </Markdown>
         }
           
     </div>

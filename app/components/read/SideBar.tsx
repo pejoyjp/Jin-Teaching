@@ -12,7 +12,7 @@ type Props = {
 const SideBar:React.FC<Props> = () => {
   const { data, isLoading } = useMaterials();
   return (
-    <div className='md:basis-1/5 border-[1px] flex justify-center h-full
+    <div className='md:basis-1/5 border-[1px] flex justify-center h-full font-thin 
                     border-white gap-1 rounded-md w-full overflow-scroll'>
             {
               isLoading?(

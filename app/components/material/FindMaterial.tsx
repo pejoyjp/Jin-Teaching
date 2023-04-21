@@ -12,6 +12,7 @@ const FindMaterial = (props: Props) => {
   const [studentId,setStudentId] = useState('')
   const router = useRouter()
   const [isLoading,setIsLoading] = useState(false)
+  
   const handleClick = async()=>{
     
     try{
