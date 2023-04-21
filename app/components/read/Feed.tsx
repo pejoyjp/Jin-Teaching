@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation'
 import React from 'react'
 import Markdown from "react-markdown";
 import remarkGfm from 'remark-gfm'
-import { oneLight } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import ReactLoading from "react-loading";
 
@@ -17,11 +17,10 @@ const Feed:React.FC<Props> = () => {
   const params = useParams()
   const {data,isLoading}:any = useMaterial(params.studentId,params.materialId)
   return (
-    <div className='h-full overflow-scroll text-white w-full p-2 bg-gray-200 '>
-       
+    <div className='h-full overflow-y-scroll text-neutral-200 w-full bg-black '>
         {
-          
           isLoading?<ReactLoading type='balls' color='#fff'/>:  
+          <div className='p-2 h-full overflow-y-scroll bg-neutral-200 text-black'>
            <Markdown
               remarkPlugins={[remarkGfm]}
               components={{
@@ -32,7 +31,7 @@ const Feed:React.FC<Props> = () => {
                       language={match[1]}
                       PreTag="div"
                       {...props}
-                      style={oneLight}
+                      style={oneDark}
                     >
                       {String(children).replace(/\n$/, '')}
                     </SyntaxHighlighter>
@@ -46,6 +45,7 @@ const Feed:React.FC<Props> = () => {
             >
                 {data?.content}
           </Markdown>
+          </div>
         }
           
     </div>
