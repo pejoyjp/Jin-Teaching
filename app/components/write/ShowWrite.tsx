@@ -13,14 +13,7 @@ type Props = {
 
 const ShowWrite:React.FC<Props> = ({markdownSource}) => {
   return (
-    <div className="p-2 h-full bg-slate-200 rounded-lg overflow-y-auto">
-        {/* <Markdown className="prose" remarkPlugins={[remarkGfm]}
-                    components={{
-                    
-                    }}
-              >
-                    {markdownSource}
-        </Markdown> */}
+    <div className="p-2 h-full bg-slate-200 rounded-lg overflow-y-auto prose">
         <Markdown
           remarkPlugins={[remarkGfm]}
           components={{

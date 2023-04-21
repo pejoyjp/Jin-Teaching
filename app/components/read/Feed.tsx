@@ -20,7 +20,7 @@ const Feed:React.FC<Props> = () => {
     <div className='h-full overflow-y-scroll text-neutral-200 w-full bg-black '>
         {
           isLoading?<ReactLoading type='balls' color='#fff'/>:  
-          <div className='p-2 h-full overflow-y-scroll bg-neutral-200 text-black'>
+          <div className='p-2 h-full overflow-y-scroll bg-neutral-200 text-black w-full prose'>
            <Markdown
               remarkPlugins={[remarkGfm]}
               components={{

@@ -36,7 +36,7 @@ const Write:React.FC<Props> =() => {
 
   return (
     <Motion>
-      <div className='w-full flex flex-col  items-end'>
+      <div className='w-full flex flex-col items-end'>
         {
           isLoading?(
             <Loading type='balls' color='#fff'/> 
@@ -59,11 +59,12 @@ const Write:React.FC<Props> =() => {
                         overflow-x-auto
                     "
                 />
-                <div className='basis-1/2 h-full'>
-                  <ShowWrite markdownSource={markdownSource}/>
-                </div>
+                  <div className='basis-1/2 h-full'>
+                    <ShowWrite markdownSource={markdownSource}/>
+                  </div>
                 
                 </div> 
+
                 <button onClick={handleClick}
                         className='bg-sky-500 py-1 rounded-lg w-40 mt-2 text-white'>提交🚀
                 </button> 
