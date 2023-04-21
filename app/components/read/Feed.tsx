@@ -17,10 +17,11 @@ const Feed:React.FC<Props> = () => {
   const params = useParams()
   const {data,isLoading}:any = useMaterial(params.studentId,params.materialId)
   return (
-    <div className='h-full overflow-y-scroll text-neutral-200 w-full bg-black '>
+    <div className=' text-neutral-200 w-full bg-black '>
         {
           isLoading?<ReactLoading type='balls' color='#fff'/>:  
-          <div className='p-2 h-full overflow-y-scroll bg-neutral-200 text-black w-full prose'>
+          <div  
+                className='p-2 h-full overflow-scroll bg-neutral-200 text-black prose'>
            <Markdown
               remarkPlugins={[remarkGfm]}
               components={{

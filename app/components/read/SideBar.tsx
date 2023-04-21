@@ -13,11 +13,11 @@ const SideBar:React.FC<Props> = () => {
   const { data, isLoading } = useMaterials();
   return (
     <div className='md:basis-1/5 border-[1px] flex justify-center h-full font-thin 
-                    border-white gap-1 rounded-md w-full overflow-scroll'>
+                    border-white gap-1 rounded-md w-full'>
             {
               isLoading?(
                 <ReactLoading type='balls' color='#fff'/>
-              ):(<div className='flex flex-col gap-3 w-full text-white'>
+              ):(<div className='flex flex-col gap-3 w-full text-white h-full overflow-scroll'>
                 
                   {data?.map((item:Record<string,any>)=>(
                       <CourseTitle key={item.materialId} item={item}  />

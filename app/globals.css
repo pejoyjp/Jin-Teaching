@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+.prose {
+    color: var(--tw-prose-body);
+    max-width: 100%;
+}

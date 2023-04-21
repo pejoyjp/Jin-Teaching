@@ -2,7 +2,7 @@ import Markdown from "react-markdown";
 import remarkGfm from 'remark-gfm'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import {
-  oneLight,
+  oneDark,
 } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
 import React from 'react'
@@ -24,7 +24,7 @@ const ShowWrite:React.FC<Props> = ({markdownSource}) => {
                   language={match[1]}
                   PreTag="div"
                   {...props}
-                  style={oneLight}
+                  style={oneDark}
                 >
                   {String(children).replace(/\n$/, '')}
                 </SyntaxHighlighter>
