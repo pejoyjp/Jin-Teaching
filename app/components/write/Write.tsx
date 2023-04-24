@@ -43,23 +43,26 @@ const Write:React.FC<Props> =() => {
           ):(
             <>
               <div className='flex flex-col md:flex-row w-full gap-4 h-[600px]'>
-                <textarea
-                    onChange={(e)=>setMarkdownSource(e.target.value)}
-                    value={markdownSource}
-                    className="
-                          basis-1/2
-                          p-2
-                          h-full
-                          overflow-auto
-                          whitespace-pre
-                          bg-neutral-700
-                          rounded-lg
-                          text-white
-                          outline-none
-                        overflow-x-auto
-                    "
-                />
-                  <div className='basis-1/2 h-full'>
+                  
+                  <textarea
+                        onChange={(e)=>setMarkdownSource(e.target.value)}
+                        value={markdownSource}
+                        className="
+                              w-1/2
+                              p-2
+                              h-full
+                              overflow-auto
+                              whitespace-pre
+                              bg-neutral-700
+                              rounded-lg
+                              text-white
+                              outline-none
+                            overflow-x-auto
+                        "
+                    />
+                 
+                 
+                  <div className='w-1/2 h-full'>
                     <ShowWrite markdownSource={markdownSource}/>
                   </div>
                 

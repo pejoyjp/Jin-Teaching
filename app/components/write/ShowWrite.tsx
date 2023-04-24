@@ -13,7 +13,7 @@ type Props = {
 
 const ShowWrite:React.FC<Props> = ({markdownSource}) => {
   return (
-    <div className="p-2 h-full bg-slate-200 rounded-lg overflow-y-auto prose">
+    <div className="p-2 h-full bg-slate-200 rounded-lg overflow-y-auto prose w-full">
         <Markdown
           remarkPlugins={[remarkGfm]}
           components={{
